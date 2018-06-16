@@ -8,7 +8,7 @@
 ![小程序码](https://img.ityudao.com/file/2018/6/395d57db6f3f480f9faa4eae4116a2fb-yudao.jpg)
 
 ## 源码说明
-本小程序，主要在于方便自己和论坛中的朋友们随时随地记录自己的小生活    
+本小程序，主要为了方便自己和论坛中的朋友们随时随地记录自己的小生活    
 项目的UI设计与主要API数据功能分析由作者独立完成，耗时一周闲余时间    
 所以代码和审美并不一定符合大部分用户，但本人也会继续努力，也希望你有兴趣，能贡献自己的一点建议与支持
 
@@ -19,7 +19,7 @@
 ## 小程序截图
 
 ### 登录/首页/菜单
-![](https://img.ityudao.com/file/2018/6/cf82279b1d24423392f4c8c056a9bb4e-screen1.png)    
+![](https://img.ityudao.com/file/2018/6/cf82279b1d24423392f4c8c056a9bb4e-screen1.png)
 
 ### 编写/详情/设置
 ![](https://img.ityudao.com/file/2018/6/f213e62fe75049b3b6728ff0057caeaa-screen2.png)
@@ -28,7 +28,8 @@
 
 [MIT](LICENSE)
 
-## 作者信息
+## 作者信息
+
 我在论坛：[Gv](https://www.ityudao.com/member/Gv)    
 
 如此项目对你有助，欢迎赞助杯咖啡：
