@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/init/loading",
+    "pages/home/index",
+    "pages/member/index",
+    "pages/create/index",
+    "pages/setting/index",
+    "pages/detail/index",
+    "pages/setting/about",
+    "pages/init/reg"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  }
+}

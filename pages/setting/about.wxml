@@ -1,0 +1,107 @@
+<include src="../../libs/weToast/weToast.wxml" />
+
+<!--背景  -->
+<view class='background'></view>
+
+<!--导航  -->
+<view class='navigator' style='padding-top:{{STATUS_HEIGHT}}px;'>
+  <!--返回按钮  -->
+  <view class='back' bindtap='goBackHandler'>
+    <image src='/assets/back_333.svg'></image>
+  </view>
+  <!--标题  -->
+  <view class='title'>
+    <text>关于</text>
+  </view>
+</view>
+
+<view class='container'>
+  <view class='header'>
+    <image src='/assets/logo.svg' class='logo'></image>
+    <text>IT遇岛/日记</text>
+    <text class='desc'>有时候，我们总有想说的话，却又不想发朋友圈，或许这里比较适合记录我们的喜怒哀乐，记录每个感触与想法。</text>
+  </view>
+
+  <view class='separator'></view>
+
+  <view class='info'>
+    <view
+      bindtap='copyHandler'
+      data-copy='h01ger'
+      data-msg='作者微信号已复制！'
+      class='cell'
+      hover-class='hover-class'>
+      <text class='name'>作者：</text>
+      <text class='content'>Gv</text>
+    </view>
+    <view
+      bindtap='copyHandler'
+      data-copy='https://www.ityudao.com'
+      data-msg='遇岛网址已复制！'
+      class='cell'
+      hover-class='hover-class'>
+      <text class='name'>遇岛：</text>
+      <text class='content'>https://www.ityudao.com</text>
+    </view>
+    <view
+      bindtap='copyHandler'
+      data-copy='https://github.com/safe-dog/yudao'
+      data-msg='项目地址已复制！'
+      class='cell'
+      hover-class='hover-class'>
+      <text class='name'>项目：</text>
+      <text class='content'>https://github.com/safe-dog/yudao</text>
+    </view>
+  </view>
+</view>
+
+<!--footer  -->
+<view class='bottom' hover-class='hover-class' bindlongtap='caidanHandler'>
+  <text>- 此页面无彩蛋 -</text>
+</view>
+
+<!--彩蛋view  -->
+<view
+  class='caidan'
+  style='z-index:{{SHOW_CAIDAN ? 999 : -1}};opacity:{{SHOW_CAIDAN ? 1 : 0}};'
+  animation="{{CAIDAN_ANIMATION}}">
+  <view
+    class='heart'
+    animation="{{CAIDAN_HEART_ANIMATION}}"
+    style='left:{{WIDTH/2-25}}px;top:{{HEIGHT/2-25}}px;'>
+    <image src='/assets/heart_red.svg'></image>
+  </view>
+
+  <view class='caidan_title' animation="{{CAIDAN_TITLE_ANIMATION}}">
+    <text>喜欢 / 一个人</text>
+  </view>
+
+  <scroll-view scroll-y class='caidan_body' style='top:{{HEIGHT}}px;height:{{HEIGHT-150}}px;' animation="{{CAIADN_BODY_ANIMATION}}">
+    <view class='bd_body'>
+      <text class='bd_title'>设计初衷</text>
+      <text class='bd_data'>
+        那一天，她说，想找个吐槽自己心声的地方都没了
+        我沉默不语
+        确实是，不喜欢窥探她人隐私，却总会无意间去关注动态
+        后来，我想起这里，我们第一次相遇的地方
+        也许
+        这个简单的日记功能
+        这个小小的遇岛日记
+        能够为你带来些什么
+      </text>
+      <text class='bd_title'>所谓爱情</text>
+      <text class='bd_data'>
+        你还相信爱情吗
+        有时候问自己，也不确定了
+        有过别离，有过舍弃，有过追寻，有过伤刺
+        所以
+        我们就不去选择相信了吗
+        或许
+        每个爱情的样子，都这样呢
+        学会放下，懂得取舍，不再封闭，试着迎合
+        毕竟，未来
+        是两人的事，与他人无关
+      </text>
+    </view>
+  </scroll-view>
+</view>

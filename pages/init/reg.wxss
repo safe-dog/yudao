@@ -1,0 +1,91 @@
+page {
+  height: 100%;
+}
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-image: linear-gradient(135deg, #FFFFFF 0%, #DDDDDD 100%);
+}
+
+.navigator {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border-bottom: 1px solid #FFF; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+.navigator > .back {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navigator > .back > image {
+  width: 20px;
+  height: 20px;
+  color: red;
+}
+.navigator > .title {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 40px;
+}
+.navigator > .title > text {
+  font-size: 16px;
+  color: #333;
+  font-weight: 300;
+}
+
+.container {
+  padding: 80px 20px 20px 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.header > .title {
+  font-size: 32px;
+  color: #333;
+  font-weight: 300;
+}
+.header > .subtitle {
+  font-size: 16px;
+  color: #666;
+  font-weight: 200;
+}
+
+.desc {
+  font-size: 14px;
+  color: #666;
+  font-weight: 200;
+}
+
+.tips {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #DDD;
+}
+
+.tips > text {
+  font-size: 14px;
+  color: #666;
+  font-weight: 200;
+}
+.tips > .link {
+  color: #4284f4;
+}

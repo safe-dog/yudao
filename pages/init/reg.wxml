@@ -1,0 +1,28 @@
+<!--背景  -->
+<view class='background'></view>
+
+<!--导航  -->
+<view class='navigator' style='padding-top:{{STATUS_HEIGHT}}px;'>
+  <!--返回按钮  -->
+  <view class='back' bindtap='goBackHandler'>
+    <image src='/assets/back_333.svg'></image>
+  </view>
+  <!--标题  -->
+  <view class='title'>
+    <text>注册账号</text>
+  </view>
+</view>
+
+<view class='container'>
+  <view class='header'>
+    <text class='title'>很遗憾</text>
+    <text class='subtitle'>目前暂不支持小程序进行账号注册操作</text>
+  </view>
+  <view class='body'>
+    <text class='desc'>遇岛日记\n欢迎一起\n记下你的心情日迹\n分享你的开心日子</text>
+    <view class='tips' bindtap='copyLinkHandler'>
+      <text>注册请前往：</text>
+      <text class='link'>https://www.ityudao.com</text>
+    </view>
+  </view>
+</view>

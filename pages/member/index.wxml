@@ -1,0 +1,43 @@
+<!--背景  -->
+<view class='background'></view>
+
+<!--导航  -->
+<view class='navigator' style='padding-top:{{STATUS_HEIGHT}}px;'>
+  <!--返回按钮  -->
+  <view class='back' bindtap='goBackHandler'>
+    <image src='/assets/back_333.svg'></image>
+  </view>
+  <!--标题  -->
+  <view class='title'>
+    <text>我的日记</text>
+  </view>
+</view>
+
+<view class='container'>
+  <!--加载中  -->
+  <view class='loading' wx:if="{{LOADING}}">
+    <image src='/assets/loading.svg'></image>
+  </view>
+  <!--数据列表  -->
+  <view class='box' wx:else>
+    <view wx:for="{{datas}}" wx:key="{{index}}" class="card" hover-class='hover-class' bindtap='viewDetailHandler' data-link='{{item.link}}'>
+      <!--左侧  -->
+      <view class='left'>
+        <view class='avatar' style='{{item.style}}'>
+          <text>{{item.tag[0]}}</text>
+        </view>
+        <text>{{item.tag}}</text>
+      </view>
+      <!--右侧  -->
+      <view class='right'>
+        <text class='info'>{{item.view}} 浏览 / {{item.permission}} / {{item.postDate}}</text>
+        <text class='title'>{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+  <!--无数据  -->
+  <view wx:if="{{!LOADING && (datas.length === 0)}}" class='nodata'>
+    <image src='/assets/nodata.svg'></image>
+    <text>暂无数据，返回编写新日记吧！</text>
+  </view>
+</view>

@@ -1,0 +1,67 @@
+<include src="/libs/weToast/weToast.wxml" />
+
+<view class="container">
+  <!--标题  -->
+  <view class='header'>
+    <!--logo  -->
+    <view class='logo'>
+      <image src='/assets/logo.svg'></image>
+    </view>
+    <!--标题  -->
+    <view class='title'>
+      <text>IT遇岛</text>
+    </view>
+    <!--子标题  -->
+    <view class='subtitle'>
+      <text>日记小程序</text>
+    </view>
+  </view>
+
+  <!--内容  -->
+  <view class='body'>
+    <!--加载中  -->
+    <view class='loading' wx:if="{{LOADING}}">
+      <image src='/assets/loading.svg'></image>
+    </view>
+    <view wx:else style='flex:1;display:flex;'>
+      <!--登陆框  -->
+      <view class='login' wx:if="{{!IS_LOGIN}}">
+        <!--username  -->
+        <view class='input-cell'>
+          <image src='/assets/user.svg'></image>
+          <input
+            value="{{INPUT_USER}}"
+            bindinput='inputUserHandler'
+            placeholder='登录账号 / 邮箱'
+            placeholder-class='input-placeholder'></input>
+        </view>
+        <!--password  -->
+        <view class='input-cell'>
+          <image src='/assets/lock.svg'></image>
+          <input
+            value='{{INPUT_PASS}}'
+            password='true'
+            bindinput='inputPassHandler'
+            placeholder='密码'
+            placeholder-class='input-placeholder'></input>
+        </view>
+        <!--login btn  -->
+        <view class='login-btn' bindtap='loginHandler' hover-class='hover-class'>
+          <text>登录</text>
+        </view>
+        <!--reg text  -->
+        <view class='reg-box' bindtap='regHandler' hover-class='hover-class'>
+          <text>需要注册？请点此 ></text>
+        </view>
+      </view>
+      <!--欢迎  -->
+      <view class='welcome' wx:else>
+        <image src='{{AVATAR_URL}}'></image>
+        <text>{{USER_NAME}}</text>
+        <!-- <image src='{{AVATAR_URL1}}' style='display:none;opacity:0;width:0px;height:0px;z-index:-1;'></image>
+        <image src='{{AVATAR_URL2}}' style='display:none;opacity:0;width:0px;height:0px;z-index:-1;'></image> -->
+        <!-- <text class='welcome_msg'>Hi，欢迎回来！</text> -->
+      </view>
+    </view>
+  </view>
+</view>

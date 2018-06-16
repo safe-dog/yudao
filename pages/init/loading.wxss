@@ -1,0 +1,142 @@
+page {
+  height: 100%;
+  display: flex;
+}
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(135deg, #FFFFFF 0%, #DDDDDD 100%);
+}
+
+.header {
+  padding: 100px 20px 20px 20px;
+}
+.logo {}
+.logo > image {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+.title {}
+.title > text {
+  font-size: 32px;
+  color: #333;
+  font-weight: 500;
+}
+.subtitle {}
+.subtitle > text {
+  font-size: 24px;
+  color: #666;
+  font-weight: 400;
+}
+
+.body {
+  background-color: #FFF;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px 15px 0px 0px;
+  border-top: 1px solid #EEE;
+}
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.loading > image {
+  width: 25px;
+  height: 25px;
+  animation: loading 800ms infinite ease;
+}
+/*加载动画  */
+@keyframes loading {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.login {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.input-cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.input-cell > image {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.input-cell > input {
+  border-bottom: 1px solid #EEE;
+  padding: 5px;
+  font-weight: 300;
+  color: #333;
+}
+.input-placeholder {
+  font-size: 14px;
+  color: #999;
+  font-weight: 200;
+}
+
+.login-btn {
+  width: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  background-image: linear-gradient(135deg, #B4EC51 0%, #429321 100%);
+  box-shadow: 0 5px 10px -5px rgba(66,147,33,0.50);
+  border-radius: 100px;
+}
+.login-btn > text {
+  font-size: 16px;
+  color: #FFF;
+  font-weight: 200;
+}
+
+.reg-box {
+
+}
+.reg-box > text {
+  font-size: 12px;
+  color: #AAA;
+  font-weight: 200;
+}
+
+.welcome {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.welcome > image {
+  width: 100px;
+  height: 100px;
+  background-color: #EEE;
+  border-radius: 50px;
+  border: 1px solid #DDD;
+}
+.welcome > text {
+  font-size: 16px;
+  color: #333;
+  font-weight: 200;
+  margin: 10px;
+}
+.welcome_msg {
+  font-size: 14px;
+  color: #666;
+  font-weight: 100;
+}

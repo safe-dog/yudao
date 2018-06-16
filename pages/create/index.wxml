@@ -1,0 +1,89 @@
+<include src="../../libs/weToast/weToast.wxml" />
+
+<!--背景  -->
+<view class='background'></view>
+
+<!--导航  -->
+<view class='navigator' style='padding-top:{{STATUS_HEIGHT}}px;'>
+  <!--返回按钮  -->
+  <view class='back' bindtap='goBackHandler'>
+    <image src='/assets/back_333.svg'></image>
+  </view>
+  <!--标题  -->
+  <view class='title'>
+    <text>编写日记</text>
+  </view>
+</view>
+
+<view class='container'>
+  <view class='box'>
+    <view class='input-title'>
+      <input
+        value='{{TITLE}}'
+        bindinput='inputTitleHandler'
+        placeholder='日记标题（选填）'
+        placeholder-style='input-placeholder'></input>
+    </view>
+
+    <view class='input-data'>
+      <textarea
+        value='{{CONTENT}}'
+        maxlength='-1'
+        style='width:{{WIDTH-60}}px;height:300px;'
+        placeholder-class='textarea-placeholder'
+        bindinput='inputContentHandler'
+        placeholder='写点儿什么呢？生活、工作、学习、感情、心情、吐槽 ... 一句话，记录最真的自己，随心所欲 ...'></textarea>
+    </view>
+  </view>
+
+  <!--工具栏  -->
+  <view class='toolbox'>
+    <!--
+    <view class='tool-cell' hover-class='hover-class'>
+      <view
+        class='tool-icon'
+        style='background-image: linear-gradient(135deg, #30cfd0 0%, #330867 100%);'>
+        <image src='/assets/gps.svg'></image>
+      </view>
+      <text>地理位置</text>
+    </view>
+    -->
+    <view class='tool-cell' hover-class='hover-class' bindtap='uploadImage'>
+      <view
+        class='tool-icon'
+        style='background-image: linear-gradient(135deg, #e5b2ca 0%, #7028e4 100%);'>
+        <image src='/assets/image.svg'></image>
+      </view>
+      <text>插入图片</text>
+    </view>
+    <!--tag  -->
+    <picker style='flex:1;' range='{{tags}}' range-key='name' bindchange='selectTagHandler'>
+      <view class='tool-cell' hover-class='hover-class'>
+        <view
+          class='tool-icon'
+          style='background-image: linear-gradient(135deg, #ffb199 0%, #ff0844 100%);'>
+          <image src='/assets/tag.svg'></image>
+        </view>
+        <text>{{current_tag.name}}</text>
+      </view>
+    </picker>
+    <!--privers  -->
+    <picker style='flex:1;' range='{{PRIVERS}}' range-key='name' bindchange='selectPriverHandler'>
+      <view class='tool-cell' hover-class='hover-class'>
+        <view
+          class='tool-icon'
+          style='background-image: linear-gradient(135deg, #9be15d 0%, #00e3ae 100%);'>
+          <image src='/assets/auth.svg'></image>
+        </view>
+        <text>{{CURRENT_PRIVER.name}}</text>
+      </view>
+    </picker>
+  </view>
+
+  <!--发布按钮  -->
+  <view class='submit'>
+    <view class='submit-btn' hover-class='hover-class' bindtap='submitHandler'>
+      <text>发布</text>
+    </view>
+  </view>
+</view>

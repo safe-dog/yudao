@@ -1,0 +1,5 @@
+@import "/libs/weToast/weToast.wxss";
+
+.hover-class {
+  opacity: 0.6;
+}

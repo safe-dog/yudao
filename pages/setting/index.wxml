@@ -1,0 +1,60 @@
+<include src="../../libs/weToast/weToast.wxml" />
+
+<!--背景  -->
+<view class='background'></view>
+
+<!--导航  -->
+<view class='navigator' style='padding-top:{{STATUS_HEIGHT}}px;'>
+  <!--返回按钮  -->
+  <view class='back' bindtap='goBackHandler'>
+    <image src='/assets/back_333.svg'></image>
+  </view>
+  <!--标题  -->
+  <view class='title'>
+    <text>设置中心</text>
+  </view>
+</view>
+
+<view class='container'>
+  <view class='box'>
+    <!--头像  -->
+    <view class='avatar'>
+      <image src='{{AVATAR_URL}}'></image>
+      <text>{{USER_NAME}}</text>
+    </view>
+    <!--卡片  -->
+    <view class='card'>
+      <button class='cell' hover-class='hover-class' bindtap='checkInHandler'>
+        <view class='cell-icon' style='background-image: linear-gradient(135deg, #f6d365 0%, #fda085 100%);'>
+          <image src='/assets/checkin.svg'></image>
+        </view>
+        <text>{{IS_CHECK_IN ? '已签到' : '签到'}}</text>
+      </button>
+
+      <button open-type='contact' class='cell' hover-class='hover-class' bindtap='userInfoHandler'>
+        <view
+          class='cell-icon'
+          style='background-image: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);'>
+          <image src='/assets/fk.svg'></image>
+        </view>
+        <text>反馈</text>
+      </button>
+
+      <button class='cell' hover-class='hover-class' bindtap='aboutHandler'>
+        <view
+          class='cell-icon'
+          style='background-image: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);'>
+          <image src='/assets/heart.svg'></image>
+        </view>
+        <text>关于</text>
+      </button>
+    </view>
+
+    <!--注销  -->
+    <view class='logout'>
+      <view class='logout-btn' hover-class='hover-class' bindtap='logoutHandler'>
+        <text>注销登陆</text>
+      </view>
+    </view>
+  </view>
+</view>

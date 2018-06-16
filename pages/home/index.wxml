@@ -1,0 +1,113 @@
+<template name="card">
+  <view class='card-box' hover-class='hover-class' data-item='{{item}}' bindtap='viewDetailHandler'>
+    <view class='left'>
+      <!--头像  -->
+      <image src='{{item.avatar}}'></image>
+      <!--时间  -->
+      <text>{{item.date}}</text>
+    </view>
+    <view class='right'>
+      <!--标题  -->
+      <text>{{item.title}}</text>
+    </view>
+  </view>
+</template>
+
+
+<!--背景  -->
+<view class='background'></view>
+<!--导航  -->
+<view
+  class='navigator'
+  bindtap='toTophandler'
+  hover-class='hover-class'
+  style='padding-top:{{STATUS_HEIGHT}}px;opacity:{{HEADER_OPACITY}};'>
+  <text>遇岛日记</text>
+</view>
+
+<!--菜单  -->
+<view
+  class='menu-shadow'
+  wx:if="{{SHOW_MENU}}"
+  bindtap='hideMenuHandler'>
+  <view class='menu-container'>
+    <view class='menu-top'>
+      <!--我的  -->
+      <view
+        class='menu-cell'
+        bindtap='menuActionHandler'
+        data-route='member'>
+        <view
+          class='menu-icon'
+          style='background-image: linear-gradient(135deg, #ffb199 0%, #ff0844 100%);'>
+          <image src='/assets/menu_user.svg'></image>
+        </view>
+        <text>我的</text>
+      </view>
+      <!--创作  -->
+      <view
+        class='menu-cell'
+        bindtap='menuActionHandler'
+        data-route='create'>
+        <view
+          class='menu-icon'
+          style='background-image: linear-gradient(135deg, #B5EB45 0%, #7ED321 100%);'>
+          <image src='/assets/menu_add.svg'></image>
+        </view>
+        <text>编写</text>
+      </view>
+      <!--设置  -->
+      <view
+        class='menu-cell'
+        bindtap='menuActionHandler'
+        data-route='setting'>
+        <view
+          class='menu-icon'
+          style='background-image: linear-gradient(135deg, #FBD249 0%, #F5A623 100%);'>
+          <image src='/assets/menu_cog.svg'></image>
+        </view>
+        <text>设置</text>
+      </view>
+    </view>
+    <view class='menu-bottom'>
+      <!--取消按钮  -->
+      <view class='menu-close'>
+        <image src='/assets/cancel.svg'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<scroll-view
+  bindscroll="scrollHandler"
+  bindscrolltolower="loadMoreHandler"
+  scroll-y
+  scroll-with-animation
+  scroll-top="{{SCROLL_TOP}}"
+  class="container"
+  style='height:{{HEIGHT}}px;'>
+  <!--标题  -->
+  <view class='header' style='opacity:{{1-(HEADER_OPACITY*2)}};'>
+    <text class='title'>遇岛日记</text>
+    <text class='subtitle'>记平淡过往 / 阅世间迷茫</text>
+  </view>
+  <!--内容列表  -->
+  <template
+    is="card"
+    wx:for="{{datas}}"
+    wx:key="{{index}}"
+    data="{{item}}"
+  />
+  <!--加载中  -->
+  <view class='loading' wx:if="{{LOADING}}">
+    <image src='/assets/loading.svg'></image>
+  </view>
+  <!--底部  -->
+  <view class='bottom'></view>
+  <!--菜单  -->
+  <view class='menu-box' animation="{{MENU_ANIMATION}}">
+    <view class='menu-btn' hover-class='hover-class' bindtap='showMenuHandler'>
+      <image src='/assets/note.svg'></image>
+    </view>
+  </view>
+</scroll-view>
