@@ -13,14 +13,18 @@ Page({
   data: {
     INFO: {},
     LOADING: true,
-    STATUS_HEIGHT: INFO.statusBarHeight
+    STATUS_HEIGHT: INFO.statusBarHeight,
+    FROM_MY: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var { link } = options;
+    var { link, isMe } = options;
+    if (isMe === 'yes') this.setData({
+      FROM_MY: true
+    });
     this.LINK = link;
     TOAST = new weToast(this);
 
@@ -68,5 +72,18 @@ Page({
 
   goBackHandler: function () {
     wx.navigateBack({});
+  },
+
+  /**
+   * 喜欢/取消喜欢
+   */
+  toggleLikeHandler: function () {
+    var { INFO } = this.data;
+    API.setLike(INFO.id);
+    this.setData({
+      INFO: Object.assign(INFO, {
+        isLiked: !INFO.isLiked
+      })
+    });
   }
 })

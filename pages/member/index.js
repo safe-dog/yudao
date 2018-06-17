@@ -69,7 +69,7 @@ Page({
   viewDetailHandler: function (e) {
     var { link } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: '/pages/detail/index?link=' + link,
+      url: '/pages/detail/index?isMe=yes&link=' + link,
     })
   },
 

@@ -158,3 +158,37 @@ page {
   height: 16px !important;
   background-color: transparent;
 }
+
+.btn-box {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.like-btn, .unlike-btn {
+  width: 200px;
+  height: 40px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.like-btn > text, .unlike-btn > text {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.like-btn {
+  border: 1px solid #4284f4;
+}
+.like-btn > text {
+  color: #4284f4;
+}
+
+.unlike-btn {
+  background-image: linear-gradient(135deg, #77a9ff 0%, #4284f4 100%);
+  box-shadow: 0px 5px 20px -5px #4284f4;
+}
+.unlike-btn > text {
+  color: #FFF;
+}

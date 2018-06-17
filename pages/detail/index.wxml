@@ -42,4 +42,22 @@
       <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
     </view>
   </view>
+
+  <!--喜欢/取消喜欢  -->
+  <view class='btn-box' wx:if="{{!FROM_MY}}">
+    <view
+      wx:if="{{INFO.isLiked}}"
+      class='unlike-btn'
+      hover-class='hover-class'
+      bindtap='toggleLikeHandler'>
+      <text>已点赞</text>
+    </view>
+    <view
+      wx:else
+      class='like-btn'
+      bindtap='toggleLikeHandler'
+      hover-class='hover-class'>
+      <text>点个赞</text>
+    </view>
+  </view>
 </view>

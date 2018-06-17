@@ -150,9 +150,13 @@ class API {
             var postDate = data.split('&nbsp;•&nbsp;')[3].split('</')[0].trim();
             // html内容
             var html = data.split('article-content">')[1].split('</div')[0];
+            // 是否已点喜欢
+            var isLiked = data.includes('has-cnt ft-red');
             return RES({
               info: {
-                title, avatar, userName, likeNum, viewNum, postDate
+                id: link.split('diary/')[1],
+                title, avatar, userName, likeNum, viewNum, postDate,
+                isLiked
               },
               html
             });
@@ -354,6 +358,29 @@ class API {
         success: ret => {
           if (ret.data.sc) return RES();
           REJ(ret);
+        }
+      })
+    })
+  }
+
+  /**
+   * 设置喜欢/取消喜欢
+   * id=日记id
+   */
+  setLike (id) {
+    return new Promise((RES, REJ) => {
+      wx.request({
+        url: 'https://www.ityudao.com/vote/up/diary',
+        method: 'POST',
+        header: {
+          'Cookie': this.COOKIE
+        },
+        data: JSON.stringify({
+          'dataId': id
+        }),
+        success: ret => {
+          if (ret.data.sc) return RES();
+          REJ();
         }
       })
     })
