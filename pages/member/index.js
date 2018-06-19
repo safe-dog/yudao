@@ -1,5 +1,5 @@
 var INFO = wx.getSystemInfoSync();
-var { API } = getApp();
+var { API, YUDAO } = getApp();
 
 Page({
 
@@ -16,6 +16,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.loadDairy();
+    YUDAO.loadMyDairy = () => this.loadDairy();
+  },
+
+  /**
+   * 加载我的日记
+   */
+  loadDairy: function () {
     API.getMyDairy().then(result => {
       var datas = [];
       result.map(ret => {

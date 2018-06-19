@@ -152,11 +152,32 @@ class API {
             var html = data.split('article-content">')[1].split('</div')[0];
             // 是否已点喜欢
             var isLiked = data.includes('has-cnt ft-red');
+
+            // 是否可删除
+            var delToken = false;
+            try {
+              delToken = data.split("Diary.remove('")[1].split("'")[0];
+            } catch (e) {}
+
+            // 解析附言
+            var fuyans = [];
+            try {
+              var fy_html = data.split('module-panel list comments">')[1].split('class="side">')[0];
+              var fy_array = fy_html.split('</li>');
+              fy_array.pop();
+              fy_array.map(function (_fy) {
+                fuyans.push({
+                  // 时间
+                  date: _fy.split('ft-fade">• ')[1].split('</')[0],
+                  html: _fy.split('content-reset comment">')[1].split('</div')[0].trim()
+                })
+              });
+            } catch (e) {}
             return RES({
               info: {
                 id: link.split('diary/')[1],
                 title, avatar, userName, likeNum, viewNum, postDate,
-                isLiked
+                isLiked, fuyans, delToken
               },
               html
             });
@@ -382,6 +403,27 @@ class API {
           if (ret.data.sc) return RES();
           REJ();
         }
+      })
+    })
+  }
+
+  /**
+   * 删除日记
+   */
+  delDairy (id, token) {
+    return new Promise((RES, REJ) => {
+      wx.request({
+        url: 'https://www.ityudao.com/diary/' + id,
+        method: 'DELETE',
+        header: {
+          'Cookie': this.COOKIE,
+          'csrftoken': token
+        },
+        success: ret => {
+          if (ret.data.sc) return RES();
+          REJ(ret);
+        },
+        fail: REJ
       })
     })
   }

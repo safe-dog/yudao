@@ -41,10 +41,21 @@
     <view class='body'>
       <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
     </view>
-  </view>
 
+    <!--附言列表  -->
+    <view class='fy-box'>
+      <view wx:for="{{INFO.fuyans}}" wx:key="{{index}}">
+        <!--标题  -->
+        <view class='fy-title'>
+          <text>- 附言{{index+1}} / {{INFO.fuyans[index].date}} -</text>
+        </view>
+        <!--内容  -->
+        <template is="wxParse" data="{{wxParseData:fy[index].nodes}}" />
+      </view>
+    </view>
+  </view>
   <!--喜欢/取消喜欢  -->
-  <view class='btn-box' wx:if="{{!FROM_MY}}">
+  <view class='btn-box'>
     <view
       wx:if="{{INFO.isLiked}}"
       class='unlike-btn'
@@ -58,6 +69,12 @@
       bindtap='toggleLikeHandler'
       hover-class='hover-class'>
       <text>点个赞</text>
+    </view>
+  </view>
+  <!--删除  -->
+  <view class='btn-box' wx:if="{{INFO.delToken}}">
+    <view class='del-btn' bindtap='delHandler' hover-class='hover-class'>
+      <text>删了吧</text>
     </view>
   </view>
 </view>
