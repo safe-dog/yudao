@@ -78,29 +78,10 @@
 
   <scroll-view scroll-y class='caidan_body' style='top:{{HEIGHT}}px;height:{{HEIGHT-150}}px;' animation="{{CAIADN_BODY_ANIMATION}}">
     <view class='bd_body'>
-      <text class='bd_title'>设计初衷</text>
       <text class='bd_data'>
-        那一天，她说，想找个吐槽自己心声的地方都没了
-        我沉默不语
-        确实是，不喜欢窥探她人隐私，却总会无意间去关注动态
-        后来，我想起这里，我们第一次相遇的地方
-        也许
-        这个简单的日记功能
-        这个小小的遇岛日记
-        能够为你带来些什么
-      </text>
-      <text class='bd_title'>所谓爱情</text>
-      <text class='bd_data'>
-        你还相信爱情吗
-        有时候问自己，也不确定了
-        有过别离，有过舍弃，有过追寻，有过伤刺
-        所以
-        我们就不去选择相信了吗
-        或许
-        每个爱情的样子，都这样呢
-        学会放下，懂得取舍，不再封闭，试着迎合
-        毕竟，未来
-        是两人的事，与他人无关
+      嗯对
+      我越来越
+      喜欢自己 ♥
       </text>
     </view>
   </scroll-view>
