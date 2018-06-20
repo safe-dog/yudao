@@ -69,7 +69,7 @@
   border: 1px solid #DDD;
 }
 .card-box > .left > text {
-  font-size: 12px;
+  font-size: 10px;
   color: #999;
   margin-top: 5px;
   font-weight: 100;

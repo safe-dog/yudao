@@ -92,6 +92,8 @@ Page({
         isLiked: !INFO.isLiked
       })
     });
+    // 提示
+    TOAST[INFO.isLiked ? 'info' : 'warning'](INFO.isLiked ? '感谢您的喜欢！' : '好遗憾被取消了点赞..');
   },
   // 删除
   delHandler: function () {
