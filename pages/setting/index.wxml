@@ -43,7 +43,7 @@
       <button class='cell' hover-class='hover-class' bindtap='aboutHandler'>
         <view
           class='cell-icon'
-          style='background-image: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);'>
+          style='background-image: linear-gradient(135deg, #40beb2 0%, #009688 100%);'>
           <image src='/assets/heart.svg'></image>
         </view>
         <text>关于</text>
