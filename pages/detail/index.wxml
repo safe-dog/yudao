@@ -59,7 +59,7 @@
   <view class='bottom-btn'>
     <!--喜欢  -->
     <view
-      class="btn-box {{INFO.isLiked?'like-btn':'unlike-btn'}}"
+      class="btn-box like-btn"
       hover-class='hover-class'
       bindtap='toggleLikeHandler'>
       <image
