@@ -68,7 +68,8 @@ Page({
     PRIVERS,
     CURRENT_PRIVER: PRIVERS[0],
     TITLE: '',
-    CONTENT: ''
+    CONTENT: '',
+    content_focus: true
   },
 
   /**
@@ -199,9 +200,13 @@ Page({
         var filePath = res.tempFilePaths[0];
         API.uploadFile(filePath).then(img_url => {
           // 插入图片
+          var CONTENT = this.data.CONTENT + '\n\n![](' + img_url + ')\n\n';
           this.setData({
-            CONTENT: this.data.CONTENT + '\n\n![](' + img_url + ')\n\n'
+            CONTENT,
+            content_focus: true
           });
+          // 存储缓存
+          wx.setStorageSync('CREATE_CONTENT', CONTENT);
           wx.hideLoading();
         })
       },

@@ -251,6 +251,8 @@ class API {
           var token = ret.data.split("qiniuUploadToken = '")[1].split("'")[0];
           // 随机文件名
           var fileName = filePath.split('//')[1];
+          // 文件名加个weapp标识
+          fileName = fileName.replace('tmp', 'weapp');
           // 开始上传
           wx.uploadFile({
             url: 'https://up.qbox.me',
