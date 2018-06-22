@@ -73,7 +73,7 @@
       <view class='tool-cell' hover-class='hover-class'>
         <view
           class='tool-icon'
-          style='background-image: linear-gradient(135deg, #9be15d 0%, #00e3ae 100%);'>
+          style='background-image: linear-gradient(135deg, #25d4c4 0%, #009688 100%);'>
           <image src='/assets/auth.svg'></image>
         </view>
         <text>{{CURRENT_PRIVER.name}}</text>
