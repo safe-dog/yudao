@@ -95,7 +95,7 @@ class API {
           'Cookie': this.COOKIE
         },
         success: ret => {
-          if (ret.statusCode === 403) return this.gotoLogin();
+          if (ret.statusCode === 403) return this.reLogin(() => this.loadDiary(page).then(RES).catch(REJ));
           var { data } = ret;
           // 解析数据
           try {
@@ -133,7 +133,7 @@ class API {
           'Cookie': this.COOKIE
         },
         success: ret => {
-          if (ret.statusCode === 403) return this.gotoLogin();
+          if (ret.statusCode === 403) return this.reLogin(() => this.getDetail(link).then(RES).catch(REJ));
           var { data } = ret;
           try {
             // 解析标题
@@ -202,7 +202,9 @@ class API {
           'Cookie': this.COOKIE
         },
         success: ret => {
-          if (ret.statusCode === 403) return this.gotoLogin();
+          if (ret.statusCode === 403) return this.reLogin(() => {
+            this.addDairy(opt).then(RES).catch(REJ);
+          });
           try {
             var token = ret.data.split("AddDiary.add('")[1].split("'")[0];
             // 开始提交
@@ -285,7 +287,7 @@ class API {
           'Cookie': this.COOKIE
         },
         success: ret => {
-          if (ret.statusCode === 403) return this.gotoLogin();
+          if (ret.statusCode === 403) return this.reLogin(() => this.getMyDairy().then(RES).catch(REJ));
           var { data } = ret;
           try {
             var temp_array = data.split('class="has-view">');
@@ -309,6 +311,25 @@ class API {
         fail: REJ
       })
     })
+  }
+
+  /**
+   * 重新登陆
+   * callback=登陆成功后执行的回掉函数
+   */
+  reLogin (callback) {
+    // 获取本地存储的账号密码
+    var usr = wx.getStorageSync('_LOGIN_USER');
+    var pwd = wx.getStorageSync('_LOGIN_PASS');
+    var { md5 } = getApp();
+    if (!usr || !pwd) return;
+    var _pwd = md5(pwd);
+
+    this.login(usr, _pwd).then(() => {
+      callback();
+    }).catch(() => {
+      this.gotoLogin();
+    });
   }
 
   /**
@@ -355,7 +376,7 @@ class API {
           'Cookie': this.COOKIE
         },
         success: ret => {
-          if (ret.statusCode === 403) return this.gotoLogin();
+          if (ret.statusCode === 403) return this.reLogin(() => this.isCheckIn().then(RESJ).catch(REJ));
           var { data } = ret;
           if (data.split('<title>')[1][0] === '积') return RES();
           // 获取签到token
